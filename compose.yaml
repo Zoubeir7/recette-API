@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  api:
+    image: my-recipe-app
+    container_name: api_my_recipe
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - '/app/node_modules'
+    ports:
+      - '3002:3002'
+    depends_on:
+      - mysql_server
+
+  mysql:
+    env_file: .env.example
+    image: mysql_server
+    volumes:
+      - db-test-config:/etc/mysql
+      - db-test-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+      MYSQL_DATABASE: ${dbNAME}
+      MYSQL_PASSWORD: ${PASSWORD}
