@@ -1,0 +1,11 @@
+{
+    "extends": [
+        "plugin:prettier/recommended" // Active `eslint-plugin-prettier` et `eslint-config-prettier`
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "error" // Met en évidence les problèmes de Prettier comme erreurs ESLint
+    }
+}

@@ -21,15 +21,27 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 
 1. **Clonez le repository :**
 
+<<<<<<< HEAD
 ```bash
    git clone https://github.com/Zoubeir7/recette-API.git
 ```
+=======
+   ```bash
+   git clone https://github.com/Zoubeir7/recette-API.git
+   ```
+>>>>>>> 418681c09e367ee5d17b4ccfc07dda7f2e4a82b5
 
 2.**Installez les dépendances :**
 
+<<<<<<< HEAD
 ```bash
    npm install
 ```
+=======
+   ```bash
+   npm install
+   ```
+>>>>>>> 418681c09e367ee5d17b4ccfc07dda7f2e4a82b5
 
 3.**Lancez le serveur Express.js :**
 
@@ -52,6 +64,13 @@ password: "password",
 database: "database_name"
 ```
 
+<<<<<<< HEAD
+=======
+   ```bash
+   npm start
+   ```
+
+>>>>>>> 418681c09e367ee5d17b4ccfc07dda7f2e4a82b5
 ## Auteur
 
 [Zoubeir Ba](https://github.com/Zoubeir7)
