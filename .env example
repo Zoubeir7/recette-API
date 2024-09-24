@@ -1,0 +1,12 @@
+# Configuration de la base de données MySQL
+HOST=localhost
+USE=
+PORT=
+PASSWORD=""
+dbNAME=recipe_management
+
+# Configuration du pool de connexions MySQL
+WFC=true            
+CL=10              
+QL=0                
+
