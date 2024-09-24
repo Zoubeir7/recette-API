@@ -1,27 +1,44 @@
-version: "3"
+version: '3.8'
 
 services:
-  api:
-    image: my-recipe-app
-    container_name: api_my_recipe
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USER=${USE}
+      - DB_PASSWORD=${PASSWORD}
+      - DB_NAME=${dbNAME}
+    depends_on:
+      - db
     volumes:
       - .:/usr/src/app
-      - '/app/node_modules'
-    ports:
-      - '3002:3002'
-    depends_on:
-      - mysql_server
+    networks:
+      - app-network
 
-  mysql:
-    env_file: .env.example
-    image: mysql_server
-    volumes:
-      - db-test-config:/etc/mysql
-      - db-test-data:/var/lib/mysql
-    ports:
-      - 3306:3306
+  db:
+    image: mysql:8.0
+    restart: always
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${PASSWORD}
       MYSQL_DATABASE: ${dbNAME}
+      MYSQL_USER: ${USE}
       MYSQL_PASSWORD: ${PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - data-recipe:/var/lib/mysql
+    networks:
+      - app-network
+
+volumes:
+  data-recipe:
+
+
+networks:
+  app-network:
