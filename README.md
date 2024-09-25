@@ -33,8 +33,7 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 2.Installez les dépendances :
 
 ```bash
-   cd recette-API
-   npm install
+   cd recette-API npm install
 ```
 
 3.Démarrez le serveur Express.js :
@@ -68,6 +67,10 @@ const dbConfig = {
 ```bash
    npm start
 ```
+
+## Test avec Postman
+ Dans le fichier `/assets/Recipe API.postman_collection`, une collection qui contient les quatre verbe Http pour testé les API
+
 
 ## Endpoints de l'API
 
@@ -146,7 +149,7 @@ const dbConfig = {
 - Executer Prettier pour le formatage automatique du code.
 
 ```bash
-  npx format
+  npn run format
 ```
 
 
