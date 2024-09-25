@@ -28,14 +28,15 @@ class Recipe {
     const connection = await pool.getConnection();
     try {
       const [result] = await connection.execute(
-        'INSERT INTO recipes (title, ingredient, type) VALUES (?, ?, ?)',
-        [title, type, ingredient],
+        'INSERT INTO recipes (title, type, ingredient) VALUES (?, ?, ?)',
+        [title, type, ingredient]
       );
       return result.insertId;
     } finally {
       connection.release();
     }
   }
+
 
   static async updateRecipe(id, title, ingredient, type) {
     const connection = await pool.getConnection();
@@ -50,7 +51,6 @@ class Recipe {
     }
   }
 
-  // Supprimer une recette par son ID
   static async destroyRecipe(id) {
     const connection = await pool.getConnection();
     try {
@@ -61,7 +61,6 @@ class Recipe {
     }
   }
 
-  // Vérifier si une recette existe par titre
   static async checkRecipe(title) {
     const connection = await pool.getConnection();
     try {
