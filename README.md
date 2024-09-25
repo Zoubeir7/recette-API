@@ -44,12 +44,12 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 
 3. Dans le fichier `/config/db.js`, remplacez vos informations d'identification dans la section suivante pour connecter l'application à votre base de données :
 
-```javascript
-const dbConfig = {
+```bash 
+ {
   user: "votre_nom_utilisateur",
   password: "votre_mot_de_passe",
   database: "votre_nom_de_base_de_données",
-};
+}
 ```
 
 ## Utilisation
