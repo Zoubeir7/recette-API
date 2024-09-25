@@ -19,7 +19,6 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 
 - Node.js
 - npm
-- Docker
 
 ## Installation
 
@@ -52,9 +51,9 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
    mysql -u root -p
 ```
 
-2.Dans le fichier `/assets/script.sql`, toutes les commandes pour créer la base de données, son utilisation et la création des tables sont incluses.
+2. Dans le fichier `/assets/script.sql`, toutes les commandes pour créer la base de données, son utilisation et la création des tables sont incluses.
 
-3.Dans le fichier `/config/db.js`, remplacez vos informations d'identification dans la section suivante pour connecter l'application à votre base de données :
+3. Dans le fichier `/config/db.js`, remplacez vos informations d'identification dans la section suivante pour connecter l'application à votre base de données :
 
 ```javascript
 const dbConfig = {
@@ -70,7 +69,7 @@ const dbConfig = {
    npm start
 ```
 
-## Points de Terminaison de l'API
+## Endpoints de l'API
 
 1. **Récupérer une Recette par ID**
 
@@ -126,10 +125,10 @@ const dbConfig = {
 
 - **Tests Unitaires :**
 
-  - Créez des tests unitaires pour votre modèle afin de vérifier que les actions CRUD fonctionnent correctement.
-  - Utilisez des frameworks comme Jest ou Jasmine pour tester les points de terminaison de l'API.
+  - tests unitaires pour notre modèle afin de vérifier que les actions CRUD fonctionnent correctement.
+  terminaison de l'API.
 
-  Exemple de commande Jest pour exécuter les tests :
+ la commande pour exécuter les tests :
 
 ```bash
   npm test
@@ -150,13 +149,6 @@ const dbConfig = {
   npx format
 ```
 
-## Conteneurisation et Déploiement
-
-- Lancer et builder les contenaires :
-
-```bash
- docker compose up --build
-```
 
 ## Auteur
 

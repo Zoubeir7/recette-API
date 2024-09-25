@@ -2,7 +2,6 @@ Commande ECHO activ�e.
 
 node_modules
 .env
+README.Docker.md
 package-lock.json
-
-
 
