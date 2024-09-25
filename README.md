@@ -155,7 +155,7 @@ const dbConfig = {
 - Lancer et builder les contenaires :
 
 ```bash
- docker compose up --build 
+ docker compose up --build
 ```
 
 ## Auteur

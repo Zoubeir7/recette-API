@@ -6,7 +6,7 @@ class Recipe {
     try {
       const [result] = await connection.execute(
         'SELECT * FROM recipes WHERE id = ?',
-        [id]
+        [id],
       );
       return result.length > 0 ? result[0] : null;
     } finally {
@@ -29,7 +29,7 @@ class Recipe {
     try {
       const [result] = await connection.execute(
         'INSERT INTO recipes (title, ingredient, type) VALUES (?, ?, ?)',
-        [title, type, ingredient,]
+        [title, type, ingredient],
       );
       return result.insertId;
     } finally {
@@ -37,12 +37,12 @@ class Recipe {
     }
   }
 
-  static async updateRecipe(id, title, ingredient, type,) {
+  static async updateRecipe(id, title, ingredient, type) {
     const connection = await pool.getConnection();
     try {
       await connection.execute(
         'UPDATE recipes SET title = ?, type = ?, ingredient = ? WHERE id = ?',
-        [title, ingredient, type, id]
+        [title, ingredient, type, id],
       );
       return true;
     } finally {
@@ -67,7 +67,7 @@ class Recipe {
     try {
       const [result] = await connection.execute(
         'SELECT COUNT(*) as count FROM recipes WHERE title = ?',
-        [title]
+        [title],
       );
       return result[0].count;
     } finally {
@@ -80,7 +80,7 @@ class Recipe {
     try {
       const [result] = await connection.execute(
         'SELECT COUNT(*) as count FROM recipes WHERE id = ?',
-        [id]
+        [id],
       );
       return result[0].count;
     } finally {

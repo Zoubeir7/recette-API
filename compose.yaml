@@ -25,12 +25,11 @@ services:
     restart: always
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes" # Permettre un mot de passe root vide
       MYSQL_DATABASE: ${dbNAME}
-      MYSQL_USER: ${USE}
-      MYSQL_PASSWORD: ${PASSWORD}
+      MYSQL_PASSWORD: ${PASSWORD} # Utilisé pour un autre utilisateur (pas root)
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - data-recipe:/var/lib/mysql
     networks:
@@ -38,6 +37,7 @@ services:
 
 volumes:
   data-recipe:
+
 
 networks:
   app-network:
