@@ -32,12 +32,6 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
    cd recette-API npm install
 ```
 
-3.Démarrez le serveur Express.js :
-
-```bash
-   npm start
-```
-
 ## Configuration de la Base de Données
 
 1. Connectez-vous en tant qu'administrateur :
@@ -58,14 +52,14 @@ const dbConfig = {
 };
 ```
 
-4.Redémarrez le serveur :
+## Utilisation
 
 ```bash
    npm start
 ```
 
 ## Tests avec Postman
- Dans le fichier `/assets/Recipe API.postman_collection`, une collection qui contient les quatre verbe Http pour testé les API
+ Dans le fichier `/assets/Recipe API.postman_collection.json`, une collection qui contient les quatre verbe Http pour testé les API
 
 
 ## Endpoints de l'API
