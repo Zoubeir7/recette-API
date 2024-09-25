@@ -24,9 +24,9 @@ class RecipeController {
   static async createRecipe(req, res, next) {
     try {
       const title = req.body.title;
-      const ingredients = req.body.ingredients;
       const type = req.body.type;
-      await Recipe.createRecipe(title, ingredients, type);
+      const ingredient = req.body.ingredient;
+      await Recipe.createRecipe(title, ingredient, type);
       res.json('Added successfully');
     } catch (e) {
       console.log(e.message);
@@ -48,10 +48,10 @@ class RecipeController {
   static async updateRecipe(req, res, next) {
     try {
       const id = req.params.id;
-      const title = req.body.titre;
-      const ingredients = req.body.ingredients;
+      const title = req.body.title;
       const type = req.body.type;
-      await Recipe.updateRecipe(id, title, ingredients, type);
+      const ingredient = req.body.ingredient;
+      await Recipe.updateRecipe(id, title, ingredient, type);
       res.json('Updted successfully');
     } catch (e) {
       console.log(e.message);

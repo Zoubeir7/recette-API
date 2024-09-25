@@ -1,21 +1,19 @@
 import { pool } from '../config/db.js';
 
 class Recipe {
-  // Récupérer une recette par son ID
   static async getRecipeById(id) {
     const connection = await pool.getConnection();
     try {
       const [result] = await connection.execute(
         'SELECT * FROM recipes WHERE id = ?',
-        [id],
+        [id]
       );
-      return result;
+      return result.length > 0 ? result[0] : null;
     } finally {
       connection.release();
     }
   }
 
-  // Récupérer toutes les recettes
   static async getRecipes() {
     const connection = await pool.getConnection();
     try {
@@ -26,27 +24,25 @@ class Recipe {
     }
   }
 
-  // Créer une nouvelle recette
   static async createRecipe(title, type, ingredient) {
     const connection = await pool.getConnection();
     try {
       const [result] = await connection.execute(
         'INSERT INTO recipes (title, ingredient, type) VALUES (?, ?, ?)',
-        [title, ingredient, type],
+        [title, type, ingredient,]
       );
-      return result.insertId; // Retourne l'ID inséré
+      return result.insertId;
     } finally {
       connection.release();
     }
   }
 
-  // Mettre à jour une recette par son ID
-  static async updateRecipe(id, title, type, ingredient) {
+  static async updateRecipe(id, title, ingredient, type,) {
     const connection = await pool.getConnection();
     try {
       await connection.execute(
         'UPDATE recipes SET title = ?, type = ?, ingredient = ? WHERE id = ?',
-        [title, type, ingredient, id],
+        [title, ingredient, type, id]
       );
       return true;
     } finally {
@@ -60,6 +56,33 @@ class Recipe {
     try {
       await connection.execute('DELETE FROM recipes WHERE id = ?', [id]);
       return true;
+    } finally {
+      connection.release();
+    }
+  }
+
+  // Vérifier si une recette existe par titre
+  static async checkRecipe(title) {
+    const connection = await pool.getConnection();
+    try {
+      const [result] = await connection.execute(
+        'SELECT COUNT(*) as count FROM recipes WHERE title = ?',
+        [title]
+      );
+      return result[0].count;
+    } finally {
+      connection.release();
+    }
+  }
+
+  static async existsById(id) {
+    const connection = await pool.getConnection();
+    try {
+      const [result] = await connection.execute(
+        'SELECT COUNT(*) as count FROM recipes WHERE id = ?',
+        [id]
+      );
+      return result[0].count;
     } finally {
       connection.release();
     }
