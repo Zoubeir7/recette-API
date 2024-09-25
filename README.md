@@ -8,10 +8,6 @@ Ce projet backend a été développé en Express.js pour gérer des recettes via
 
 ![Diagramme de Classes](./src/assets/D-class.png)
 
-## Objectifs
-
-- Apprendre à développer, tester et documenter des API RESTful avec Node.js en utilisant le framework Express.js.
-- Améliorer une API existante développée par une autre équipe et collaborer en binômes pour discuter et donner des retours.
 
 ## Prérequis
 
@@ -68,7 +64,7 @@ const dbConfig = {
    npm start
 ```
 
-## Test avec Postman
+## Tests avec Postman
  Dans le fichier `/assets/Recipe API.postman_collection`, une collection qui contient les quatre verbe Http pour testé les API
 
 
@@ -124,12 +120,10 @@ const dbConfig = {
    - **Description :** Supprimer une recette par son ID.
    - **Réponse :** Confirmation de la suppression réussie ou une erreur 404 si non trouvé.
 
-## Tests
-
-- **Tests Unitaires :**
+## Tests Unitaires
 
   - tests unitaires pour notre modèle afin de vérifier que les actions CRUD fonctionnent correctement.
-  terminaison de l'API.
+ 
 
  la commande pour exécuter les tests :
 
