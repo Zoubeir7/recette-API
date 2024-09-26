@@ -1,7 +1,7 @@
 import { Recipe } from "../src/models/Recipe.js";
 
 describe("Recipe Model Tests", () => {
-  let recipeId = null;
+  let recipeId = 23;
 
   it("can create a recipe", async () => {
     const recipe = {
@@ -12,8 +12,9 @@ describe("Recipe Model Tests", () => {
 
     recipeId = await Recipe.createRecipe(
       recipe.title,
-      recipe.type,
-      recipe.ingredient
+      recipe.ingredient,
+      recipe.type
+
     );
     const recipeCreated = await Recipe.getRecipes();
     const createdRecipe = recipeCreated.find(r => r.id === recipeId);

@@ -1,4 +1,4 @@
-# Recette API
+# Recipe API
 
 ## Description
 

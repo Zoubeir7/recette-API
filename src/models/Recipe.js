@@ -29,7 +29,7 @@ class Recipe {
     try {
       const [result] = await connection.execute(
         'INSERT INTO recipes (title, type, ingredient) VALUES (?, ?, ?)',
-        [title, type, ingredient]
+        [title, ingredient, type]
       );
       return result.insertId;
     } finally {
