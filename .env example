@@ -10,3 +10,5 @@ WFC=true
 CL=10              
 QL=0                
 
+MYSQL_ROOT_PASSWORD=""
+MYSQL_DATABASE=recipe_management
