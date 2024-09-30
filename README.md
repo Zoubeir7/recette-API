@@ -140,7 +140,18 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
   npn run format
 ```
 
+## Lancement de conteneur Docker
 
+  - pour lancer le conteneur exécuter la commande .
+
+```bash
+  docker-compose up 
+```
+  - pour lancer le conteneur et interagir avec le serveur Mysql exécuter la commande .
+
+```bash
+  docker exec -it mysql mysql -u root -p
+```
 ## Auteur
 
 [Zoubeir Ba](https://github.com/Zoubeir7)
