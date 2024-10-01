@@ -55,7 +55,7 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 ```
 
 ## Tests avec Postman
- Dans le fichier `/assets/Recipe API.postman_collection.json`, une collection qui contient les quatre verbe Http pour testé les API
+ Dans le fichier `/assets/Recipe-collection.json`, une collection qui contient les quatre verbe Http pour testé les API.
 
 
 ## Endpoints de l'API
@@ -110,6 +110,18 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
    - **Description :** Supprimer une recette par son ID.
    - **Réponse :** Confirmation de la suppression réussie ou une erreur 404 si non trouvé.
 
+6. **Vérifier l'Existence d'une Recette par Titre**
+
+   - **Point de terminaison :** `POST/recipes/`
+   - **Description :** Vérifie si une recette avec le titre spécifié existe dans la base de données.
+   - **Corps de la requête :**
+
+     ```json
+     {
+        "title": "Titre de la Recette"
+     }
+     ```
+
 ## Tests Unitaires
 
   - tests unitaires pour notre modèle afin de vérifier que les actions CRUD fonctionnent correctement.
@@ -138,12 +150,18 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 
 ## Lancement de conteneur Docker
 
-  - pour lancer le conteneur exécuter la commande .
+  - pour builder l'image exécuter la commande.
+
+```bash
+  docker-compose up --build
+```
+
+  - pour lancer le conteneur exécuter la commande.
 
 ```bash
   docker-compose up 
 ```
-  - pour lancer le conteneur et interagir avec le serveur Mysql exécuter la commande .
+  - pour lancer le conteneur et interagir avec le serveur Mysql exécuter la commande.
 
 ```bash
   docker exec -it mysql mysql -u root -p
