@@ -7,8 +7,8 @@ const addRequestValidator = [
     .notEmpty()
     .withMessage('Titre ne peut pas être vide!')
     .bail()
-    .isLength({ min: 4 })
-    .withMessage('Minimum 6 caractères requis!')
+    .isLength({ min: 5, max: 100 })
+    .withMessage('Le titre doit contenir entre 5 et 100 caractères!')
     .bail()
     .custom(async (value) => {
       const count = await Recipe.checkRecipe(value);
@@ -21,8 +21,15 @@ const addRequestValidator = [
     .notEmpty()
     .withMessage('Type ne peut pas être vide!')
     .bail()
-    .isLength({ min: 4 })
-    .withMessage('Minimum 4 caractères requis!')
+    .isIn(['entrée', 'plat', 'dessert'])
+    .withMessage('Type doit être l’une des valeurs suivantes : entrée, plat, dessert!')
+    .bail(),
+  check('ingredients')
+    .notEmpty()
+    .withMessage('Ingrédients ne peuvent pas être vides!')
+    .bail()
+    .isLength({ min: 10, max: 500 })
+    .withMessage('Les ingrédients doivent contenir entre 10 et 500 caractères!')
     .bail(),
   (req, res, next) => {
     const errors = validationResult(req);
@@ -32,20 +39,11 @@ const addRequestValidator = [
         .json({ errors: errors.array() });
     next();
   },
-
-  check('ingredient')
-    .notEmpty()
-    .withMessage('Ingredients ne peut pas être vide!')
-    .bail()
-    .isLength({ min: 10, max: 50 })
-    .withMessage('Entre 10 et 50 caractères!')
-    .bail(),
 ];
 
 const deleteRequestValidator = [
   param('id')
-    .not()
-    .isEmpty()
+    .notEmpty()
     .withMessage('Id est obligatoire!')
     .bail()
     .custom(async (value) => {
@@ -79,10 +77,10 @@ const updateRequestValidator = [
     }),
   check('title')
     .notEmpty()
-    .withMessage('Titre ne doit pas être vide')
+    .withMessage('Titre ne peut pas être vide!')
     .bail()
-    .isLength({ min: 6 })
-    .withMessage('Minimum 6 caractères requis!')
+    .isLength({ min: 5, max: 100 })
+    .withMessage('Le titre doit contenir entre 5 et 100 caractères!')
     .bail()
     .custom(async (value) => {
       const count = await Recipe.checkRecipe(value);
@@ -95,8 +93,15 @@ const updateRequestValidator = [
     .notEmpty()
     .withMessage('Type ne peut pas être vide!')
     .bail()
-    .isLength({ min: 4 })
-    .withMessage('Minimum 4 caractères requis!')
+    .isIn(['entrée', 'plat', 'dessert'])
+    .withMessage('Type doit être l’une des valeurs suivantes : entrée, plat, dessert!')
+    .bail(),
+  check('ingredients')
+    .notEmpty()
+    .withMessage('Ingrédients ne peuvent pas être vides!')
+    .bail()
+    .isLength({ min: 10, max: 500 })
+    .withMessage('Les ingrédients doivent contenir entre 10 et 500 caractères!')
     .bail(),
   (req, res, next) => {
     const errors = validationResult(req);
@@ -106,14 +111,6 @@ const updateRequestValidator = [
         .json({ errors: errors.array() });
     next();
   },
-
-  check('ingredient')
-    .notEmpty()
-    .withMessage('Ingredients ne peut pas être vide!')
-    .bail()
-    .isLength({ min: 10, max: 50 })
-    .withMessage('Entre 10 et 50 caractères!')
-    .bail(),
 ];
 
 export { addRequestValidator, deleteRequestValidator, updateRequestValidator };

@@ -4,10 +4,6 @@
 
 Ce projet backend a été développé en Express.js pour gérer des recettes via une API RESTful consommée par un frontend Vue.js. Le backend permet la gestion des recettes avec des fonctionnalités CRUD (Create, Read, Update, Delete) et est connecté à une base de données MySQL.
 
-## Diagramme de Classes
-
-![Diagramme de Classes](./src/assets/D-class.png)
-
 
 ## Prérequis
 
