@@ -7,3 +7,5 @@ CREATE TABLE recipes (
     type VARCHAR(100) NOT NULL,
     ingredients TEXT NOT NULL
 );
+
+

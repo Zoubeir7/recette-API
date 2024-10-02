@@ -4,7 +4,6 @@
 
 Ce projet backend a été développé en Express.js pour gérer des recettes via une API RESTful consommée par un frontend Vue.js. Le backend permet la gestion des recettes avec des fonctionnalités CRUD (Create, Read, Update, Delete) et est connecté à une base de données MySQL.
 
-
 ## Prérequis
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
@@ -36,16 +35,23 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
    mysql -u root -p
 ```
 
-2. Dans le fichier `/assets/script.sql`, toutes les commandes pour créer la base de données, son utilisation et la création des tables sont incluses.
+2. Dans le fichier `/assets/script.sql`, toutes les commandes pour créer la base de données, son utilisation et la création des tables sont incluses avec insertion des données de simulation.
 
-3. Dans le fichier `/config/db.js`, remplacez vos informations d'identification dans la section suivante pour connecter l'application à votre base de données :
+3. Pour le fichier .env.example il faut faire une copie en suite rennomer le fichier en `.env` , et renseigner vos identifiant et les informations de la base de données  :
 
-```bash 
- {
-  user: "votre_nom_utilisateur",
-  password: "votre_mot_de_passe",
-  database: "votre_nom_de_base_de_données",
-}
+```bash
+HOST=your_host
+USE=your_username 
+PORT=3306
+PASSWORD=your_password
+dbNAME=your_database_name 
+
+WFC=true        
+CL=10            
+QL=0              
+
+MYSQL_ROOT_PASSWORD=your_root_password  
+MYSQL_DATABASE=your_database_name 
 ```
 
 ## Utilisation
@@ -55,8 +61,8 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 ```
 
 ## Tests avec Postman
- Dans le fichier `/assets/Recipe-collection.json`, une collection qui contient les quatre verbe Http pour testé les API.
 
+Dans le fichier `/assets/Recipe-collection.json`, une collection qui contient les quatre verbe Http pour testé les API.
 
 ## Endpoints de l'API
 
@@ -81,8 +87,8 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
      ```json
      {
        "title": "Titre de la Recette",
-       "ingredient": "Liste des Ingrédients",
-       "type": "Type de Recette"
+       "type": "plat",
+       "ingredients": "Liste des Ingrédients"
      }
      ```
 
@@ -97,8 +103,8 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
      ```json
      {
        "title": "Titre Mis à Jour",
-       "ingredient": "Liste des Ingrédients Mise à Jour",
-       "type": "Type de Recette Mis à Jour"
+       "type": "plat",
+       "ingredients": "Liste des Ingrédients Mise à Jour"
      }
      ```
 
@@ -118,16 +124,15 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 
      ```json
      {
-        "title": "Titre de la Recette"
+       "title": "Titre de la Recette"
      }
      ```
 
 ## Tests Unitaires
 
-  - tests unitaires pour notre modèle afin de vérifier que les actions CRUD fonctionnent correctement.
- 
+- tests unitaires pour notre modèle afin de vérifier que les actions CRUD fonctionnent correctement.
 
- la commande pour exécuter les tests :
+la commande pour exécuter les tests :
 
 ```bash
   npm test
@@ -150,26 +155,26 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 
 ## Lancement de conteneur Docker
 
-  - pour builder l'image exécuter la commande.
+- pour builder l'image exécuter la commande.
 
 ```bash
   docker-compose up --build
 ```
 
-  - pour lancer le conteneur exécuter la commande.
+- pour lancer le conteneur exécuter la commande.
 
 ```bash
-  docker-compose up 
+  docker-compose up
 ```
-  - pour lancer le conteneur et interagir avec le serveur Mysql exécuter la commande.
+
+- pour lancer le conteneur et interagir avec le serveur Mysql exécuter la commande.
 
 ```bash
   docker exec -it mysql mysql -u root -p
 ```
+
 ## Auteur
 
 [Zoubeir Ba](https://github.com/Zoubeir7)
 
-## Contributeur
 
-[Assa baradji](https://github.com/AssaBaradji)

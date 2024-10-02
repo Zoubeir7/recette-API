@@ -22,7 +22,9 @@ const addRequestValidator = [
     .withMessage('Type ne peut pas être vide!')
     .bail()
     .isIn(['entrée', 'plat', 'dessert'])
-    .withMessage('Type doit être l’une des valeurs suivantes : entrée, plat, dessert!')
+    .withMessage(
+      'Type doit être l’une des valeurs suivantes : entrée, plat, dessert!',
+    )
     .bail(),
   check('ingredients')
     .notEmpty()
@@ -94,7 +96,9 @@ const updateRequestValidator = [
     .withMessage('Type ne peut pas être vide!')
     .bail()
     .isIn(['entrée', 'plat', 'dessert'])
-    .withMessage('Type doit être l’une des valeurs suivantes : entrée, plat, dessert!')
+    .withMessage(
+      'Type doit être l’une des valeurs suivantes : entrée, plat, dessert!',
+    )
     .bail(),
   check('ingredients')
     .notEmpty()

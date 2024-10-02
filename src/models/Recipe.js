@@ -29,14 +29,13 @@ class Recipe {
     try {
       const [result] = await connection.execute(
         'INSERT INTO recipes (title, type, ingredients) VALUES (?, ?, ?)',
-        [title, ingredients, type]
+        [title, ingredients, type],
       );
       return result.insertId;
     } finally {
       connection.release();
     }
   }
-
 
   static async updateRecipe(id, title, ingredients, type) {
     const connection = await pool.getConnection();

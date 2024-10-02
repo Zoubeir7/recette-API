@@ -38,6 +38,5 @@ services:
 volumes:
   data-recipe:
 
-
 networks:
   app-network:
