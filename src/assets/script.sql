@@ -9,3 +9,12 @@ CREATE TABLE recipes (
 );
 
 
+INSERT INTO recipes (title, type, ingredients)
+VALUES 
+('Tarte', 'dessert', 'Pâte, Pommes, Sucre, Beurre'),
+('Lasagne', 'plat', 'Pâtes, Viande, Sauce tomate, Fromage'),
+('Brownie', 'dessert', 'Chocolat, Beurre, Sucre, Farine, Oeufs'),
+('Couscous', 'entrée', 'Semoule, Légumes, Viande, Épices'),
+('Crêpe', 'dessert', 'Farine, Lait, Oeufs, Sucre, Beurre'),
+('Ratatouille', 'plat', 'Courgettes, Aubergines, Tomates, Oignons, Poivrons');
+
