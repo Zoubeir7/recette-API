@@ -58,7 +58,7 @@ describe("Recipe Model Tests", () => {
 
   it("can delete a recipe", async () => {
     const result = await RecipeModel.destroyRecipe(recipeId);
-    const recipesAfterDeletion = await Recipe.getRecipes();
+    const recipesAfterDeletion = await RecipeModel.getRecipes();
 
     const recipeAfterDeletion = recipesAfterDeletion.find(
       (r) => r.id === recipeId,
