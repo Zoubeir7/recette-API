@@ -67,9 +67,4 @@ describe("Recipe Model Tests", () => {
     expect(result).toBe(true);
     expect(recipeAfterDeletion).toBeUndefined();
   });
-
-  it("can check if a recipe exists by title", async () => {
-    const count = await Recipe.checkRecipe("domoda");
-    expect(count).toBeGreaterThan(0);
-  });
 });

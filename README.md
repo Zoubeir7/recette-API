@@ -155,16 +155,10 @@ la commande pour exécuter les tests :
 
 ## Lancement de conteneur Docker
 
-- pour builder l'image exécuter la commande.
+- pour builder l'image et lancer le conteneur exécuter la commande.
 
 ```bash
   docker-compose up --build
-```
-
-- pour lancer le conteneur exécuter la commande.
-
-```bash
-  docker-compose up
 ```
 
 - pour lancer le conteneur et interagir avec le serveur Mysql exécuter la commande.
