@@ -1,6 +1,6 @@
 import { pool } from '../config/db.js';
 
-class Recipe {
+class RecipeModel {
   static async getRecipeById(id) {
     const connection = await pool.getConnection();
     try {
@@ -87,4 +87,4 @@ class Recipe {
   }
 }
 
-export { Recipe };
+export { RecipeModel };

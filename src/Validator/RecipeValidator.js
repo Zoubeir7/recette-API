@@ -1,6 +1,6 @@
 import { check, param, validationResult } from 'express-validator';
 import { StatusCodes } from 'http-status-codes';
-import { Recipe } from '../models/Recipe.js';
+import { RecipeModel } from '../models/RecipeModel.js';
 
 const addRequestValidator = [
   check('title')
@@ -11,7 +11,7 @@ const addRequestValidator = [
     .withMessage('Le titre doit contenir entre 5 et 100 caractères!')
     .bail()
     .custom(async (value) => {
-      const count = await Recipe.checkRecipe(value);
+      const count = await RecipeModel.checkRecipe(value);
       if (count > 0) {
         throw new Error('Cette recette existe déjà!');
       }
@@ -49,7 +49,7 @@ const deleteRequestValidator = [
     .withMessage('Id est obligatoire!')
     .bail()
     .custom(async (value) => {
-      const count = await Recipe.existsById(value);
+      const count = await RecipeModel.existsById(value);
       if (count === 0) {
         throw new Error("Cette recette n'existe pas!");
       }
@@ -71,7 +71,7 @@ const updateRequestValidator = [
     .withMessage('Id est requis!')
     .bail()
     .custom(async (value) => {
-      const count = await Recipe.existsById(value);
+      const count = await RecipeModel.existsById(value);
       if (count === 0) {
         throw new Error("Cette recette n'existe pas!");
       }
@@ -85,7 +85,7 @@ const updateRequestValidator = [
     .withMessage('Le titre doit contenir entre 5 et 100 caractères!')
     .bail()
     .custom(async (value) => {
-      const count = await Recipe.checkRecipe(value);
+      const count = await RecipeModel.checkRecipe(value);
       if (count > 0) {
         throw new Error('Cette recette existe déjà!');
       }

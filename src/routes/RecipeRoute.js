@@ -1,10 +1,6 @@
 import express from 'express';
 import { RecipeController } from '../controllers/RecipeController.js';
-import {
-  addRequestValidator,
-  updateRequestValidator,
-  deleteRequestValidator,
-} from '../Validator/RecipeValidator.js';
+import { addRequestValidator, updateRequestValidator, deleteRequestValidator, } from '../Validator/RecipeValidator.js';
 
 const router = express.Router();
 

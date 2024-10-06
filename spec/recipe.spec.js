@@ -1,4 +1,4 @@
-import { Recipe } from "../src/models/Recipe.js";
+import { RecipeModel } from "../src/models/RecipeModel.js";
 
 describe("Recipe Model Tests", () => {
   let recipeId = 6;
@@ -10,13 +10,13 @@ describe("Recipe Model Tests", () => {
       ingredients: "sel,eau, ll",
     };
 
-    recipeId = await Recipe.createRecipe(
+    recipeId = await RecipeModel.createRecipe(
       recipe.title,
       recipe.ingredients,
       recipe.type,
     );
 
-    const recipeCreated = await Recipe.getRecipes();
+    const recipeCreated = await RecipeModel.getRecipes();
     const createdRecipe = recipeCreated.find((r) => r.id === recipeId);
 
     expect(recipeId).not.toBeNull();
@@ -27,7 +27,7 @@ describe("Recipe Model Tests", () => {
   });
 
   it("can retrieve all recipes", async () => {
-    const allRecipes = await Recipe.getRecipes();
+    const allRecipes = await RecipeModel.getRecipes();
 
     expect(allRecipes).not.toBeNull();
     expect(Array.isArray(allRecipes)).toBe(true);
@@ -40,14 +40,14 @@ describe("Recipe Model Tests", () => {
       ingredients: "sel, eau, riz",
     };
 
-    const result = await Recipe.updateRecipe(
+    const result = await RecipeModel.updateRecipe(
       recipeId,
       updatedRecipe.title,
       updatedRecipe.type,
       updatedRecipe.ingredients,
     );
 
-    const updatedRecipeFromDb = await Recipe.getRecipes();
+    const updatedRecipeFromDb = await RecipeModel.getRecipes();
     const updatedRecipeObj = updatedRecipeFromDb.find((r) => r.id === recipeId);
 
     expect(result).toBe(true);
@@ -57,7 +57,7 @@ describe("Recipe Model Tests", () => {
   });
 
   it("can delete a recipe", async () => {
-    const result = await Recipe.destroyRecipe(recipeId);
+    const result = await RecipeModel.destroyRecipe(recipeId);
     const recipesAfterDeletion = await Recipe.getRecipes();
 
     const recipeAfterDeletion = recipesAfterDeletion.find(
