@@ -51,7 +51,7 @@ class RecipeController {
       const title = req.body.title;
       const type = req.body.type;
       const ingredients = req.body.ingredients;
-      await RecipeModel.updateRecipe(id, title, ingredients, type);
+      await RecipeModel.updateRecipe(id, title, type, ingredients);
       res.json('Updted successfully');
     } catch (e) {
       console.log(e.message);
